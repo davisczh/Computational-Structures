@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="test_M4" board="Alchitry Au" language="Lucid" version="3">
+  <files>
+    <src>enemy_display.luc</src>
+    <src>player_display.luc</src>
+    <src>dual_matrix.luc</src>
+    <src top="true">au_top.luc</src>
+    <src>led_writer.luc</src>
+    <component>reset_conditioner.luc</component>
+    <src>hanoi_display.luc</src>
+    <constraint>custom.acf</constraint>
+  </files>
+</project>

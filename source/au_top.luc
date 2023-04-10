@@ -1,0 +1,46 @@
+module au_top (
+    input clk,              // 100MHz clock
+    input rst_n,            // reset button (active low)
+    output led [8],         // 8 user controllable LEDs
+    input usb_rx,           // USB->Serial input
+    output outled,           // to LED strip, Br pin C49, connect LED Strip to 5V for power
+    output usb_tx,          // USB->Serial output
+    output io_led [3][8],   // LEDs on IO Shield
+    output io_seg [8],      // 7-segment LEDs on IO Shield
+    output io_sel [4], 
+         // Digit select on IO Shield
+    input io_button[5],// 5 buttons on IO Shield
+    input io_dip [3][8]     // DIP switches on IO Shield
+  ) {
+  
+  sig rst;                  // reset signal
+ // sig trigger;
+  hanoi_display display(.clk(clk), .rst(rst));
+  
+  .clk(clk) {
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    reset_conditioner reset_cond;
+
+   
+  }
+
+  always {
+  //ignore
+    reset_cond.in = ~rst_n; // input raw inverted reset signal
+    rst = reset_cond.out;   // conditioned reset
+    usb_tx = usb_rx;        // loop serial port
+    io_led = io_dip;
+    io_seg = 8hFF;
+    io_sel = 4b1111;  
+    led = io_dip[0][7:0];
+
+    display.player_position = io_dip[0][7:0];
+    display.enemy_positions = {
+      8b01110000, 8b01100010, 8b01101011, 8b01101101,
+      8b11100101, 8b11101110, 8b11110111, 8b11111000
+    };
+
+    outled = display.led;
+  }
+}
