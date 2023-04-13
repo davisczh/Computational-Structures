@@ -1,0 +1,45 @@
+module enemy_display (
+    input clk,  // clock
+    input rst,  // reset
+    input enemy_positions[15][8],
+ //   input enemy_dirs[8][2],
+    input x[5], input y[3],
+    input screen,
+    output color[24]
+    
+  ) {
+
+  sig enemy_x[5], enemy_y[3];
+  sig enemy_position[8];
+  sig k[4];
+
+    
+  always {
+    color = Colors.BLACK;
+    for (k=0; k<15; k++) {
+     enemy_position = enemy_positions[k];
+   
+      if (screen == 0 && enemy_position[7] == 0){
+      enemy_y = 3b000 + enemy_position[6:5] + 2;
+      enemy_x = enemy_position[4:0];
+      }
+     else if (screen == 1 && enemy_position[7] == 1){
+      enemy_y = 3b000 +  enemy_position[6:5] + 1;
+      enemy_x = 31-enemy_position[4:0];
+      }
+      else{
+      enemy_y = 8b0;
+      enemy_x = 8b0;
+      }
+ 
+      if (enemy_x == x){
+        if (enemy_y == y
+        || enemy_y == y +1 || enemy_y == y + 2)
+       {
+        color = Colors.RED;
+      }
+      }
+    }
+  }
+}
+
