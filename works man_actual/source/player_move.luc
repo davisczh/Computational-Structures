@@ -17,38 +17,12 @@ module player_move(
     dff player_position_dff[8](#INIT(8b01100001));
     }}
   always {
-    
     player_move = b;
     player_position = player_position_dff.q;
-    new_position[7:0]= player_position_dff.q;  //used to be [6:0]
-    
+    new_position[7:0]= player_position_dff.q;  
     x = player_position[4:0];
     y = player_position[7:5];
-    
-    //if move left
-//    if (b ==0 ){
-//    //if already left
-//      if(y[2] == 0){
-//        new_position[7:5] = y;
-//      }
-//      else{
-//        new_position[7] = y[2]-1;
- //     }
-//   }
-//       //if move right
-//    else if(b == 1){ 
-//      //if already right
-//       if (y[2] == 1){
-//        new_position[7:5] = y;
- //         
- //     }
- //       else{
- ///       new_position[7] = y[2]+1;
- //       }
-  //  }
- //   else{
-  //   new_position = y;
-  //  }
+
     if (b == 1){
       if (y[2] ==0 ){
         new_position[7] = 1;

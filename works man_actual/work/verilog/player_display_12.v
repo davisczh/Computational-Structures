@@ -36,7 +36,7 @@ module player_display_12 (
     end
     if (player_x == x) begin
       if (player_y == y || player_y == y + 1'h1 || player_y == y + 2'h2) begin
-        color = 24'h0000ff;
+        color = 24'h00ff00;
       end
     end
   end

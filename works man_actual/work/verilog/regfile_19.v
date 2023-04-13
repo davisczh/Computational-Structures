@@ -14,7 +14,6 @@ module regfile_19 (
     input [3:0] wsel,
     input we,
     input [15:0] wd,
-    input reset_game,
     output reg [15:0] aout,
     output reg [15:0] bout,
     output reg [7:0] dump_state,
@@ -28,11 +27,11 @@ module regfile_19 (
   
   reg [7:0] M_player_pos_d, M_player_pos_q = 8'h61;
   reg [7:0] M_state_dff_d, M_state_dff_q = 8'h00;
-  reg [7:0] M_enemy_positions_d, M_enemy_positions_q = 8'h00;
+  reg [7:0] M_branch_positions_d, M_branch_positions_q = 8'h00;
   reg [7:0] M_collision_d, M_collision_q = 1'h0;
   reg [7:0] M_score_d, M_score_q = 8'h00;
   
-  wire [168-1:0] M_rom_out;
+  wire [152-1:0] M_rom_out;
   rom_ish_2 rom (
     .state(M_state_dff_q),
     .out(M_rom_out)
@@ -41,14 +40,14 @@ module regfile_19 (
   always @* begin
     M_score_d = M_score_q;
     M_collision_d = M_collision_q;
+    M_branch_positions_d = M_branch_positions_q;
     M_state_dff_d = M_state_dff_q;
     M_player_pos_d = M_player_pos_q;
-    M_enemy_positions_d = M_enemy_positions_q;
     
-    dump_branch = M_enemy_positions_q;
+    dump_branch = M_branch_positions_q;
     dump_pos = M_player_pos_q;
     dump_score = M_score_q;
-    M_enemy_positions_d = M_rom_out[152+7-:8];
+    M_branch_positions_d = M_rom_out[136+7-:8];
     dump_collisions = M_collision_q;
     aout = 1'h0;
     if (aconst) begin
@@ -60,7 +59,7 @@ module regfile_19 (
           aout = M_player_pos_q;
         end
         2'h2: begin
-          aout = M_enemy_positions_q;
+          aout = M_branch_positions_q;
         end
         2'h3: begin
           aout = 1'h0;
@@ -83,7 +82,7 @@ module regfile_19 (
           bout = M_player_pos_q;
         end
         2'h2: begin
-          bout = M_enemy_positions_q;
+          bout = M_branch_positions_q;
         end
         2'h3: begin
           bout = 1'h0;
@@ -120,13 +119,13 @@ module regfile_19 (
     if (rst == 1'b1) begin
       M_player_pos_q <= 8'h61;
       M_state_dff_q <= 8'h00;
-      M_enemy_positions_q <= 8'h00;
+      M_branch_positions_q <= 8'h00;
       M_collision_q <= 1'h0;
       M_score_q <= 8'h00;
     end else begin
       M_player_pos_q <= M_player_pos_d;
       M_state_dff_q <= M_state_dff_d;
-      M_enemy_positions_q <= M_enemy_positions_d;
+      M_branch_positions_q <= M_branch_positions_d;
       M_collision_q <= M_collision_d;
       M_score_q <= M_score_d;
     end

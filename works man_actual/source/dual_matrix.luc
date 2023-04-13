@@ -15,12 +15,10 @@ module dual_matrix #(
     output screen[1],
     output led
   ) {
-  // we map the pixel no for two LED matrices attached to one another
-  // to their x, y coordinate and their screen number
+
   led_writer writer(
     #PIXEL_COUNT(NUM_PIXELS), .clk(clk), .rst(rst)
-  );
-  
+  );  
   sig pixel_no[$clog2(NUM_PIXELS)];
   sig modulo_pixel[$clog2(HEIGHT)];
   sig x_position[$clog2(WIDTH)];

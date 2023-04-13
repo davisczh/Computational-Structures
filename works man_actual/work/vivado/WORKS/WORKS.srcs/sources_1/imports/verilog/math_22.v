@@ -4,7 +4,7 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module comparator_24 (
+module math_22 (
     input [15:0] a,
     input [15:0] b,
     input [5:0] alufn,
@@ -13,21 +13,24 @@ module comparator_24 (
   
   
   
-  reg [2:0] compare_code;
   
   always @* begin
-    res = 1'h0;
-    compare_code = alufn[0+2-:3];
     
-    case (compare_code)
-      3'h3: begin
-        res = a == b;
+    case (alufn)
+      6'h00: begin
+        res = a + b;
       end
-      3'h5: begin
-        res = a < b;
+      6'h01: begin
+        res = a - b;
       end
-      3'h7: begin
-        res = a <= b;
+      6'h02: begin
+        res = a * b;
+      end
+      6'h03: begin
+        res = a / b;
+      end
+      default: begin
+        res = 8'h00;
       end
     endcase
   end

@@ -14,16 +14,13 @@ module main (
     output dump_collisions[8],
     output dump_pos[8],
     output dump_score[8]
-  ) {
-  
+  ) { 
   alu alu;
- 
+  
   .clk(clk) {
-    
   .rst(rst) {
-    regfile regfile(.wd(alu.res), .reset_game(reset_game));
+    regfile regfile(.wd(alu.res));
       counter slowclock(#SIZE(1), #DIV(25));
-      counter slowerclock(#SIZE(1), #DIV(24));
     fsm states = {
       START,
       COLLISION_CHECK,
@@ -39,8 +36,6 @@ module main (
   .clk(clk){edge_detector slowclock_edge(#RISE(1), #FALL(0), .in(slowclock.value));
   
     }
-
-
   always {
     alu.a = regfile.aout;
     alu.b = regfile.bout;
@@ -60,29 +55,6 @@ module main (
           states.d = states.START;
         else
           states.d = states.DISPLAY_NEXT;
-      
-        
-        //this isnt being used rn
-      states.INIT_STATE:
-      regfile.asel = 3;
-      regfile.bsel = 1;
-       regfile.aconst = 0;
-        regfile.bconst = 0;
-        alu.alufn = Alufns.CMPEQ;
-        regfile.we = 1;
-      regfile.wsel = 6;
-       states.d = states.DISPLAY_NEXT;
-        
-   //   states.INIT_POS:
-   //   regfile.asel = 3;
-   //   regfile.bsel = 8b01100001;
-   //    regfile.aconst = 0;
-   //     regfile.bconst = 1;
-   //     alu.alufn = 6b000000;
-   //     regfile.we = 1;
-    //  regfile.wsel = 0;
-    //   states.d = states.DISPLAY_NEXT;
-      //shld add 1 to what address to find at ROM
       states.DISPLAY_NEXT:
         regfile.asel = 6;
         regfile.bsel = 1;
@@ -92,7 +64,6 @@ module main (
         regfile.we = 1;
         regfile.wsel = 6;
         states.d = states.UPDATE_POS;
-        
       states.UPDATE_POS:
         regfile.asel = player_pos;
         regfile.bsel = 3;
@@ -103,9 +74,7 @@ module main (
         regfile.wsel = 0;
         states.d = states.COLLISION_CHECK;
         
-        
-      states.COLLISION_CHECK:
-        
+        states.COLLISION_CHECK:
         regfile.asel = 0;
         regfile.bsel = 2;
         regfile.aconst = 0;
@@ -124,8 +93,8 @@ module main (
         states.d = states.COLLISION_CHECK;
         }
       states.END:
-        regfile.asel = 3;  //used to be 0
-        regfile.bsel = 3;  //used tp be 0
+        regfile.asel = 3; 
+        regfile.bsel = 3;  
         regfile.aconst = 0;
         regfile.bconst = 0;
         alu.alufn = 6b000000;
@@ -136,8 +105,7 @@ module main (
         }
         else{
         states.d = states.END;
-        }
-        
+        }  
       states.UPDATE_SCORE:
         regfile.asel = 1;
         regfile.bsel = 1; 

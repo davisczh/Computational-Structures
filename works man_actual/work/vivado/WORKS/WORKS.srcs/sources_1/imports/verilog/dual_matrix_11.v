@@ -33,7 +33,7 @@ module dual_matrix_11 (
   wire [1-1:0] M_writer_led;
   reg [1-1:0] M_writer_update;
   reg [24-1:0] M_writer_color;
-  led_writer_22 writer (
+  led_writer_21 writer (
     .clk(clk),
     .rst(rst),
     .update(M_writer_update),

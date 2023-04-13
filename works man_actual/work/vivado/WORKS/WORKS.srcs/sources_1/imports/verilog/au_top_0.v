@@ -34,16 +34,16 @@ module au_top_0 (
   
   wire [1-1:0] M_display_led;
   reg [8-1:0] M_display_player_position;
-  reg [168-1:0] M_display_enemy_positions;
-  hanoi_display_1 display (
+  reg [152-1:0] M_display_branch_positions;
+  screen_display_1 display (
     .clk(clk),
     .rst(rst),
     .player_position(M_display_player_position),
-    .enemy_positions(M_display_enemy_positions),
+    .branch_positions(M_display_branch_positions),
     .led(M_display_led)
   );
   
-  wire [168-1:0] M_rom_out;
+  wire [152-1:0] M_rom_out;
   rom_ish_2 rom (
     .state(dump_state),
     .out(M_rom_out)
@@ -63,19 +63,19 @@ module au_top_0 (
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
   );
-  wire [1-1:0] M_player_move_left_out;
-  reg [1-1:0] M_player_move_left_in;
-  button_conditioner_5 player_move_left (
+  wire [1-1:0] M_player_reset_out;
+  reg [1-1:0] M_player_reset_in;
+  button_conditioner_5 player_reset (
     .clk(clk),
-    .in(M_player_move_left_in),
-    .out(M_player_move_left_out)
+    .in(M_player_reset_in),
+    .out(M_player_reset_out)
   );
-  wire [1-1:0] M_button_left_edge_out;
-  reg [1-1:0] M_button_left_edge_in;
-  edge_detector_6 button_left_edge (
+  wire [1-1:0] M_button_reset_edge_out;
+  reg [1-1:0] M_button_reset_edge_in;
+  edge_detector_6 button_reset_edge (
     .clk(clk),
-    .in(M_button_left_edge_in),
-    .out(M_button_left_edge_out)
+    .in(M_button_reset_edge_in),
+    .out(M_button_reset_edge_out)
   );
   wire [1-1:0] M_player_move_right_out;
   reg [1-1:0] M_player_move_right_in;
@@ -148,15 +148,15 @@ module au_top_0 (
     M_seg_values = score_digit;
     io_seg = M_seg_seg;
     io_sel = M_seg_sel;
-    M_player_move_left_in = io_button[0+0-:1];
-    M_button_left_edge_in = M_player_move_left_out;
+    M_player_reset_in = io_button[0+0-:1];
+    M_button_reset_edge_in = M_player_reset_out;
     M_player_move_right_in = io_button[1+0-:1];
     M_button_right_edge_in = M_player_move_right_out;
-    reset_final = M_button_left_edge_out;
+    reset_final = M_button_reset_edge_out;
     pmove_final = M_button_right_edge_out;
     dump_state = M_main_dump_state;
     M_display_player_position = M_main_dump_pos;
-    M_display_enemy_positions = M_rom_out;
+    M_display_branch_positions = M_rom_out;
     io_led[0+7-:8] = M_main_dump_collisions;
     io_led[8+7-:8] = M_main_dump_pos;
     io_led[16+7-:8] = score;

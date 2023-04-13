@@ -11,7 +11,6 @@ module comparator (
   always {
     res = 0;
     compare_code = alufn[2:0];
-    
     case (compare_code) {
       3b011:
         res = a == b;

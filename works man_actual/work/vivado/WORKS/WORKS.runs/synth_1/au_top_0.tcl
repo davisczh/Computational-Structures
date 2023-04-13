@@ -86,20 +86,18 @@ OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/alu_18.v}
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/bin_to_dec_3.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/branch_display_13.v}
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/button_conditioner_5.v}
-  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/comparator_24.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/comparator_23.v}
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/counter_15.v}
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/counter_20.v}
-  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/counter_21.v}
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/decoder_17.v}
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/dual_matrix_11.v}
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/edge_detector_6.v}
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/edge_detector_7.v}
-  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/enemy_display_13.v}
-  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/hanoi_display_1.v}
-  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/led_writer_22.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/led_writer_21.v}
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/main_10.v}
-  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/math_23.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/math_22.v}
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/multi_seven_seg_9.v}
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/pipeline_14.v}
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/player_display_12.v}
@@ -107,6 +105,7 @@ read_verilog -library xil_defaultlib {
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/regfile_19.v}
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/reset_conditioner_4.v}
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/rom_ish_2.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/screen_display_1.v}
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/seven_seg_16.v}
   {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/au_top_0.v}
 }

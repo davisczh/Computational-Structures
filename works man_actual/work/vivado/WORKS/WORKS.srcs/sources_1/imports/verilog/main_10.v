@@ -48,7 +48,6 @@ module main_10 (
     .clk(clk),
     .rst(rst),
     .wd(M_alu_res),
-    .reset_game(reset_game),
     .asel(M_regfile_asel),
     .aconst(M_regfile_aconst),
     .bsel(M_regfile_bsel),
@@ -68,12 +67,6 @@ module main_10 (
     .clk(clk),
     .rst(rst),
     .value(M_slowclock_value)
-  );
-  wire [1-1:0] M_slowerclock_value;
-  counter_21 slowerclock (
-    .clk(clk),
-    .rst(rst),
-    .value(M_slowerclock_value)
   );
   localparam START_states = 3'd0;
   localparam COLLISION_CHECK_states = 3'd1;
@@ -116,16 +109,6 @@ module main_10 (
         end else begin
           M_states_d = DISPLAY_NEXT_states;
         end
-      end
-      INIT_STATE_states: begin
-        M_regfile_asel = 2'h3;
-        M_regfile_bsel = 1'h1;
-        M_regfile_aconst = 1'h0;
-        M_regfile_bconst = 1'h0;
-        M_alu_alufn = 6'h33;
-        M_regfile_we = 1'h1;
-        M_regfile_wsel = 3'h6;
-        M_states_d = DISPLAY_NEXT_states;
       end
       DISPLAY_NEXT_states: begin
         M_regfile_asel = 3'h6;

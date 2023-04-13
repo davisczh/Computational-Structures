@@ -14,14 +14,14 @@ module alu_18 (
   
   
   wire [16-1:0] M_math_res;
-  math_23 math (
+  math_22 math (
     .a(a),
     .b(b),
     .alufn(alufn),
     .res(M_math_res)
   );
   wire [16-1:0] M_comparator_res;
-  comparator_24 comparator (
+  comparator_23 comparator (
     .a(a),
     .b(b),
     .alufn(alufn),

@@ -4,11 +4,11 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module hanoi_display_1 (
+module screen_display_1 (
     input clk,
     input rst,
     input [7:0] player_position,
-    input [167:0] enemy_positions,
+    input [151:0] branch_positions,
     output reg led
   );
   
@@ -46,18 +46,18 @@ module hanoi_display_1 (
     .y(M_player_color_y),
     .color(M_player_color_color)
   );
-  wire [24-1:0] M_enemy_color_color;
-  reg [5-1:0] M_enemy_color_x;
-  reg [3-1:0] M_enemy_color_y;
-  reg [1-1:0] M_enemy_color_screen;
-  enemy_display_13 enemy_color (
+  wire [24-1:0] M_branch_color_color;
+  reg [5-1:0] M_branch_color_x;
+  reg [3-1:0] M_branch_color_y;
+  reg [1-1:0] M_branch_color_screen;
+  branch_display_13 branch_color (
     .clk(clk),
     .rst(rst),
-    .enemy_positions(enemy_positions),
-    .x(M_enemy_color_x),
-    .y(M_enemy_color_y),
-    .screen(M_enemy_color_screen),
-    .color(M_enemy_color_color)
+    .branch_positions(branch_positions),
+    .x(M_branch_color_x),
+    .y(M_branch_color_y),
+    .screen(M_branch_color_screen),
+    .color(M_branch_color_color)
   );
   
   always @* begin
@@ -66,20 +66,23 @@ module hanoi_display_1 (
     M_player_color_screen = M_led_matrix_screen;
     M_player_color_x = M_led_matrix_x;
     M_player_color_y = M_led_matrix_y;
-    M_enemy_color_screen = M_led_matrix_screen;
-    M_enemy_color_x = M_led_matrix_x;
-    M_enemy_color_y = M_led_matrix_y;
+    M_branch_color_screen = M_led_matrix_screen;
+    M_branch_color_x = M_led_matrix_x;
+    M_branch_color_y = M_led_matrix_y;
     M_led_matrix_color = 24'h000000;
-    if (M_enemy_color_color == 24'h00ff00) begin
-      M_led_matrix_color = M_enemy_color_color;
+    if (M_branch_color_color == 24'h00893c) begin
+      M_led_matrix_color = M_branch_color_color;
     end else begin
       M_led_matrix_color = (M_player_color_color);
     end
     if ((M_led_matrix_screen == 1'h0 && (M_led_matrix_y == 2'h2 || M_led_matrix_y == 1'h1) && M_led_matrix_x != 1'h0) || (M_led_matrix_screen == 1'h1 && (M_led_matrix_y == 3'h5 || M_led_matrix_y == 3'h6))) begin
-      M_led_matrix_color = 24'hff0000;
+      M_led_matrix_color = 24'h00873a;
     end
-    if ((M_led_matrix_screen == 1'h0 && M_led_matrix_x == 1'h0) || (M_led_matrix_screen == 1'h1 && M_led_matrix_x == 5'h1f)) begin
+    if ((M_led_matrix_screen == 1'h0 && (M_led_matrix_x == 1'h0 || M_led_matrix_x == 5'h1f) || (M_led_matrix_screen == 1'h1 && (M_led_matrix_x == 5'h1f | M_led_matrix_x == 1'h0)))) begin
       M_led_matrix_color = 24'h010101;
+    end
+    if ((M_led_matrix_screen == 1'h0 && ((M_led_matrix_x == 5'h1f && M_led_matrix_y == 2'h3) | (M_led_matrix_x == 5'h1e && M_led_matrix_y == 3'h6) | (M_led_matrix_x == 5'h1b && M_led_matrix_y == 3'h5) | (M_led_matrix_x == 5'h17 && M_led_matrix_y == 2'h3) | (M_led_matrix_x == 5'h16 && M_led_matrix_y == 2'h2) | (M_led_matrix_x == 5'h19 && M_led_matrix_y == 2'h3))) | (M_led_matrix_screen == 1'h1 && ((M_led_matrix_x == 1'h0 && M_led_matrix_y == 2'h2)) | (M_led_matrix_x == 2'h2 && M_led_matrix_y == 2'h2) | (M_led_matrix_x == 3'h4 && M_led_matrix_y == 3'h4) | (M_led_matrix_x == 3'h7 && M_led_matrix_y == 2'h3 | (M_led_matrix_x == 4'ha && M_led_matrix_y == 1'h1) | (M_led_matrix_x == 4'h9 && M_led_matrix_y == 2'h3)))) begin
+      M_led_matrix_color = 24'h000077;
     end
   end
 endmodule
