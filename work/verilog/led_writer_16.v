@@ -8,7 +8,7 @@
    Parameters:
      PIXEL_COUNT = NUM_PIXELS
 */
-module led_writer_7 (
+module led_writer_16 (
     input clk,
     input rst,
     input update,

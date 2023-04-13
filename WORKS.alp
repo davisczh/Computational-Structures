@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="WORKS" board="Alchitry Au" language="Lucid" version="3">
+  <files>
+    <src>rom_ish.luc</src>
+    <src>hanoi_display.luc</src>
+    <src>math.luc</src>
+    <component>pipeline.luc</component>
+    <src>main.luc</src>
+    <component>counter.luc</component>
+    <src top="true">au_top.luc</src>
+    <src>enemy_display.luc</src>
+    <src>regfile.luc</src>
+    <component>pn_gen.luc</component>
+    <src>player_move.luc</src>
+    <component>simple_ram.v</component>
+    <src>comparator.luc</src>
+    <src>player_display.luc</src>
+    <component>reset_conditioner.luc</component>
+    <src>globals.luc</src>
+    <component>edge_detector.luc</component>
+    <component>button_conditioner.luc</component>
+    <src>dual_matrix.luc</src>
+    <src>alu.luc</src>
+    <src>led_writer.luc</src>
+    <constraint>custom.acf</constraint>
+  </files>
+</project>

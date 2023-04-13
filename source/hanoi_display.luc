@@ -23,9 +23,9 @@ module hanoi_display (
     input rst,  // reset
     input player_position[8],
   
-    input enemy_positions[10][8],
+    input enemy_positions[31][8],
 
-   
+
     output led
   ) {
     
@@ -41,14 +41,13 @@ module hanoi_display (
   );
   
   enemy_display enemy_color(
-    .enemy_positions(enemy_positions)
- 
-  );
+    .enemy_positions(enemy_positions));
     }
    }
   always {
     led_matrix.update = 1;
     led = led_matrix.led;
+    
     
     player_color.screen = led_matrix.screen;
     player_color.x = led_matrix.x;
@@ -58,7 +57,7 @@ module hanoi_display (
     enemy_color.x = led_matrix.x;
     enemy_color.y = led_matrix.y;
     
-    
+  
     led_matrix.color = Colors.BLACK;
    
       if (enemy_color.color == Colors.ENEMY_COLOR) {

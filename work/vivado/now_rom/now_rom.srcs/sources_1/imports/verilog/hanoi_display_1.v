@@ -8,7 +8,7 @@ module hanoi_display_1 (
     input clk,
     input rst,
     input [7:0] player_position,
-    input [79:0] enemy_positions,
+    input [247:0] enemy_positions,
     output reg led
   );
   
@@ -21,7 +21,7 @@ module hanoi_display_1 (
   wire [1-1:0] M_led_matrix_led;
   reg [1-1:0] M_led_matrix_update;
   reg [24-1:0] M_led_matrix_color;
-  dual_matrix_4 led_matrix (
+  dual_matrix_9 led_matrix (
     .clk(clk),
     .rst(rst),
     .update(M_led_matrix_update),
@@ -37,7 +37,7 @@ module hanoi_display_1 (
   reg [1-1:0] M_player_color_screen;
   reg [5-1:0] M_player_color_x;
   reg [3-1:0] M_player_color_y;
-  player_display_5 player_color (
+  player_display_10 player_color (
     .clk(clk),
     .rst(rst),
     .player_position(player_position),
@@ -50,7 +50,7 @@ module hanoi_display_1 (
   reg [5-1:0] M_enemy_color_x;
   reg [3-1:0] M_enemy_color_y;
   reg [1-1:0] M_enemy_color_screen;
-  enemy_display_6 enemy_color (
+  enemy_display_11 enemy_color (
     .clk(clk),
     .rst(rst),
     .enemy_positions(enemy_positions),

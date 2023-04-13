@@ -14,33 +14,74 @@ module au_top (
   ) {
   
   sig rst; 
-  sig state[8];                 // reset signal
+  sig state[8];  
+  sig pmove_final[8];   
+  sig reset_final;
+  sig left[8];
+  sig right[8];    
+  sig dump_state[8];        // reset signal
  // sig trigger;
   hanoi_display display(.clk(clk), .rst(rst));
-  rom_ish rom(.state(state));
   
+  rom_ish rom(.state(dump_state));
+ 
   
   .clk(clk) {
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
     reset_conditioner reset_cond;
-
+    
+    button_conditioner player_move_left;
+    edge_detector button_left_edge(#RISE(1), #FALL(0));
+    
+    button_conditioner player_move_right;
+    edge_detector button_right_edge(#RISE(1), #FALL(0));
+     
+  .rst(rst){
+    counter slowclock(#SIZE(1), #DIV(14));
+      player_move player_move(.b(pmove_final));
+    }
    
   }
-
+  main main(.clk(clk),
+    .rst(rst),
+    .pmove(pmove_final),
+    .reset_game(reset_final),
+    .player_pos(player_move.res)
+  );
   always {
   //ignore
     reset_cond.in = ~rst_n; // input raw inverted reset signal
     rst = reset_cond.out;   // conditioned reset
     usb_tx = usb_rx;        // loop serial port
-    io_led = io_dip;
+    
     io_seg = 8hFF;
     io_sel = 4b1111;  
     led = io_dip[0][7:0];
-    state = io_dip[2];
-    display.player_position = io_dip[0][7:0];
-    display.enemy_positions = rom.out_state;
+  
+     //test
+    //reset_final= io_dip[0][0];
+    
 
+    //actually a reset button
+    player_move_left.in = io_button[0];
+    button_left_edge.in = player_move_left.out;
+    
+    //actually just move, no direction
+    player_move_right.in = io_button[1];
+    button_right_edge.in = player_move_right.out;
+  
+    reset_final = button_left_edge.out;
+    pmove_final = button_right_edge.out;
+    
+    dump_state = main.dump_state;
+    display.player_position = main.dump_pos;
+    display.enemy_positions = rom.out;
+    
+    //display whatever
+    io_led[0] = dump_state;
+    io_led[1] = main.dump_pos;
+    io_led[2] = main.dump_branch;
     outled = display.led;
   }
 }

@@ -24,9 +24,19 @@ module au_top_0 (
   
   reg [7:0] state;
   
+  reg [7:0] pmove_final;
+  
+  reg reset_final;
+  
+  reg [7:0] left;
+  
+  reg [7:0] right;
+  
+  reg [7:0] dump_state;
+  
   wire [1-1:0] M_display_led;
   reg [8-1:0] M_display_player_position;
-  reg [80-1:0] M_display_enemy_positions;
+  reg [248-1:0] M_display_enemy_positions;
   hanoi_display_1 display (
     .clk(clk),
     .rst(rst),
@@ -35,10 +45,10 @@ module au_top_0 (
     .led(M_display_led)
   );
   
-  wire [80-1:0] M_rom_out_state;
+  wire [248-1:0] M_rom_out;
   rom_ish_2 rom (
-    .state(state),
-    .out_state(M_rom_out_state)
+    .state(dump_state),
+    .out(M_rom_out)
   );
   
   wire [1-1:0] M_reset_cond_out;
@@ -48,18 +58,85 @@ module au_top_0 (
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
   );
+  wire [1-1:0] M_player_move_left_out;
+  reg [1-1:0] M_player_move_left_in;
+  button_conditioner_4 player_move_left (
+    .clk(clk),
+    .in(M_player_move_left_in),
+    .out(M_player_move_left_out)
+  );
+  wire [1-1:0] M_button_left_edge_out;
+  reg [1-1:0] M_button_left_edge_in;
+  edge_detector_5 button_left_edge (
+    .clk(clk),
+    .in(M_button_left_edge_in),
+    .out(M_button_left_edge_out)
+  );
+  wire [1-1:0] M_player_move_right_out;
+  reg [1-1:0] M_player_move_right_in;
+  button_conditioner_4 player_move_right (
+    .clk(clk),
+    .in(M_player_move_right_in),
+    .out(M_player_move_right_out)
+  );
+  wire [1-1:0] M_button_right_edge_out;
+  reg [1-1:0] M_button_right_edge_in;
+  edge_detector_5 button_right_edge (
+    .clk(clk),
+    .in(M_button_right_edge_in),
+    .out(M_button_right_edge_out)
+  );
+  wire [1-1:0] M_slowclock_value;
+  counter_6 slowclock (
+    .clk(clk),
+    .rst(rst),
+    .value(M_slowclock_value)
+  );
+  wire [8-1:0] M_player_move_res;
+  player_move_7 player_move (
+    .clk(clk),
+    .rst(rst),
+    .b(pmove_final),
+    .res(M_player_move_res)
+  );
+  
+  wire [6-1:0] M_main_current_state;
+  wire [8-1:0] M_main_dump_state;
+  wire [8-1:0] M_main_dump_branch;
+  wire [1-1:0] M_main_dump_collisions;
+  wire [8-1:0] M_main_dump_pos;
+  main_8 main (
+    .clk(clk),
+    .rst(rst),
+    .pmove(pmove_final),
+    .reset_game(reset_final),
+    .player_pos(M_player_move_res),
+    .current_state(M_main_current_state),
+    .dump_state(M_main_dump_state),
+    .dump_branch(M_main_dump_branch),
+    .dump_collisions(M_main_dump_collisions),
+    .dump_pos(M_main_dump_pos)
+  );
   
   always @* begin
     M_reset_cond_in = ~rst_n;
     rst = M_reset_cond_out;
     usb_tx = usb_rx;
-    io_led = io_dip;
     io_seg = 8'hff;
     io_sel = 4'hf;
     led = io_dip[0+0+7-:8];
-    state = io_dip[16+7-:8];
-    M_display_player_position = io_dip[0+0+7-:8];
-    M_display_enemy_positions = M_rom_out_state;
+    M_player_move_left_in = io_button[0+0-:1];
+    M_button_left_edge_in = M_player_move_left_out;
+    M_player_move_right_in = io_button[1+0-:1];
+    M_button_right_edge_in = M_player_move_right_out;
+    reset_final = M_button_left_edge_out;
+    pmove_final = M_button_right_edge_out;
+    dump_state = M_main_dump_state;
+    M_display_player_position = M_main_dump_pos;
+    M_display_enemy_positions = M_rom_out;
+    io_led[0+7-:8] = dump_state;
+    io_led[8+7-:8] = M_main_dump_pos;
+    io_led[16+7-:8] = M_player_move_res;
     outled = M_display_led;
   end
 endmodule

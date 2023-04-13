@@ -4,7 +4,7 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module player_display_5 (
+module player_display_10 (
     input clk,
     input rst,
     input [7:0] player_position,

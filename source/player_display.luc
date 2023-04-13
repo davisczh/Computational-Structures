@@ -4,7 +4,7 @@ module player_display (
     input player_position[8],
  //   input player_disk[4],
     input screen,
-   // input trigger,
+  //  input trigger,
     input x[5], input y[3],
     output color[24]
   ) {
@@ -18,7 +18,7 @@ module player_display (
    // player_position should colide with branch_position at either (8b 011 00001) or (8b 111 00001)
    // player_position[7:5] 3b011 (shows up on left) or 3b111 (shows up on right)
    // player_position[4:0] always 5b00001
-
+      
       if (screen == 0 && player_position[7] == 0){
       player_y = 3b000 + player_position[6:5] + 2;
       player_x = player_position[4:0];

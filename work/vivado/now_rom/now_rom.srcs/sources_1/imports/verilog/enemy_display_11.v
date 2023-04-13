@@ -4,10 +4,10 @@
    This is a temporary file and any changes made to it will be destroyed.
 */
 
-module enemy_display_6 (
+module enemy_display_11 (
     input clk,
     input rst,
-    input [79:0] enemy_positions,
+    input [247:0] enemy_positions,
     input [4:0] x,
     input [2:0] y,
     input screen,
@@ -19,13 +19,13 @@ module enemy_display_6 (
   reg [4:0] enemy_x;
   reg [2:0] enemy_y;
   
-  reg [9:0] enemy_position;
+  reg [7:0] enemy_position;
   
   reg [3:0] k;
   
   always @* begin
     color = 24'h000000;
-    for (k = 1'h0; k < 4'ha; k = k + 1) begin
+    for (k = 1'h0; k < 4'hf; k = k + 1) begin
       enemy_position = enemy_positions[(k)*8+7-:8];
       if (screen == 1'h0 && enemy_position[7+0-:1] == 1'h0) begin
         enemy_y = 3'h0 + enemy_position[5+1-:2] + 2'h2;

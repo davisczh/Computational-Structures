@@ -11,7 +11,7 @@
      PIXELS_PER_SCREEN = WIDTH*HEIGHT
      NUM_PIXELS = PIXELS_PER_SCREEN*2
 */
-module dual_matrix_4 (
+module dual_matrix_9 (
     input clk,
     input rst,
     input update,
@@ -33,7 +33,7 @@ module dual_matrix_4 (
   wire [1-1:0] M_writer_led;
   reg [1-1:0] M_writer_update;
   reg [24-1:0] M_writer_color;
-  led_writer_7 writer (
+  led_writer_16 writer (
     .clk(clk),
     .rst(rst),
     .update(M_writer_update),

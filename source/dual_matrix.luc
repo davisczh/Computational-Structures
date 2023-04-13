@@ -1,5 +1,4 @@
 // dual screen display module
-
 module dual_matrix #(
   WIDTH = 32: WIDTH > 0,
   HEIGHT = 8: HEIGHT > 0,
@@ -18,7 +17,6 @@ module dual_matrix #(
   ) {
   // we map the pixel no for two LED matrices attached to one another
   // to their x, y coordinate and their screen number
-  
   led_writer writer(
     #PIXEL_COUNT(NUM_PIXELS), .clk(clk), .rst(rst)
   );
@@ -37,7 +35,6 @@ module dual_matrix #(
     if (pixel_no < PIXELS_PER_SCREEN) {
       screen = 0;
       x_position = pixel_no / HEIGHT;
-      // p % height = p - height * floor(p / height)
       modulo_pixel = pixel_no - x_position * HEIGHT;
       x = x_position;
     
@@ -49,7 +46,7 @@ module dual_matrix #(
     } else {
       screen = 1;
       x_position = (pixel_no - PIXELS_PER_SCREEN) / HEIGHT;
-      // p % height = p - height * floor(p / height)
+
       modulo_pixel = (pixel_no - PIXELS_PER_SCREEN) - x_position * HEIGHT;
       x = x_position;
       
