@@ -146,8 +146,8 @@ module au_top_0 (
     M_b_to_d_value = score;
     score_digit = M_b_to_d_digits;
     M_seg_values = score_digit;
-    io_seg = ~M_seg_seg;
-    io_sel = ~M_seg_sel;
+    io_seg = M_seg_seg;
+    io_sel = M_seg_sel;
     M_player_move_left_in = io_button[0+0-:1];
     M_button_left_edge_in = M_player_move_left_out;
     M_player_move_right_in = io_button[1+0-:1];

@@ -68,8 +68,8 @@ module au_top (
     b_to_d.value = score;
     score_digit = b_to_d.digits;
     seg.values = score_digit;
-    io_seg = ~seg.seg;
-    io_sel = ~seg.sel;
+    io_seg = seg.seg;
+    io_sel = seg.sel;
 
     //actually a reset button
     player_move_left.in = io_button[0];
