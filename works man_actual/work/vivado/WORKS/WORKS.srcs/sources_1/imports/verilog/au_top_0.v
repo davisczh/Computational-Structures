@@ -22,17 +22,15 @@ module au_top_0 (
   
   reg rst;
   
-  reg [7:0] state;
-  
   reg [7:0] pmove_final;
   
   reg reset_final;
   
-  reg [7:0] left;
-  
-  reg [7:0] right;
+  reg [7:0] score;
   
   reg [7:0] dump_state;
+  
+  reg [15:0] score_digit;
   
   wire [1-1:0] M_display_led;
   reg [8-1:0] M_display_player_position;
@@ -51,53 +49,71 @@ module au_top_0 (
     .out(M_rom_out)
   );
   
+  wire [16-1:0] M_b_to_d_digits;
+  reg [14-1:0] M_b_to_d_value;
+  bin_to_dec_3 b_to_d (
+    .value(M_b_to_d_value),
+    .digits(M_b_to_d_digits)
+  );
+  
   wire [1-1:0] M_reset_cond_out;
   reg [1-1:0] M_reset_cond_in;
-  reset_conditioner_3 reset_cond (
+  reset_conditioner_4 reset_cond (
     .clk(clk),
     .in(M_reset_cond_in),
     .out(M_reset_cond_out)
   );
   wire [1-1:0] M_player_move_left_out;
   reg [1-1:0] M_player_move_left_in;
-  button_conditioner_4 player_move_left (
+  button_conditioner_5 player_move_left (
     .clk(clk),
     .in(M_player_move_left_in),
     .out(M_player_move_left_out)
   );
   wire [1-1:0] M_button_left_edge_out;
   reg [1-1:0] M_button_left_edge_in;
-  edge_detector_5 button_left_edge (
+  edge_detector_6 button_left_edge (
     .clk(clk),
     .in(M_button_left_edge_in),
     .out(M_button_left_edge_out)
   );
   wire [1-1:0] M_player_move_right_out;
   reg [1-1:0] M_player_move_right_in;
-  button_conditioner_4 player_move_right (
+  button_conditioner_5 player_move_right (
     .clk(clk),
     .in(M_player_move_right_in),
     .out(M_player_move_right_out)
   );
   wire [1-1:0] M_button_right_edge_out;
   reg [1-1:0] M_button_right_edge_in;
-  edge_detector_5 button_right_edge (
+  edge_detector_6 button_right_edge (
     .clk(clk),
     .in(M_button_right_edge_in),
     .out(M_button_right_edge_out)
   );
-  wire [1-1:0] M_slowclock_value;
-  counter_6 slowclock (
+  wire [1-1:0] M_reset_out;
+  reg [1-1:0] M_reset_in;
+  edge_detector_7 reset (
     .clk(clk),
-    .rst(rst),
-    .value(M_slowclock_value)
+    .in(M_reset_in),
+    .out(M_reset_out)
   );
   wire [8-1:0] M_player_move_res;
-  player_move_7 player_move (
+  player_move_8 player_move (
     .clk(clk),
     .rst(rst),
     .b(pmove_final),
     .res(M_player_move_res)
+  );
+  wire [7-1:0] M_seg_seg;
+  wire [4-1:0] M_seg_sel;
+  reg [16-1:0] M_seg_values;
+  multi_seven_seg_9 seg (
+    .clk(clk),
+    .rst(rst),
+    .values(M_seg_values),
+    .seg(M_seg_seg),
+    .sel(M_seg_sel)
   );
   
   wire [6-1:0] M_main_current_state;
@@ -105,7 +121,8 @@ module au_top_0 (
   wire [8-1:0] M_main_dump_branch;
   wire [8-1:0] M_main_dump_collisions;
   wire [8-1:0] M_main_dump_pos;
-  main_8 main (
+  wire [8-1:0] M_main_dump_score;
+  main_10 main (
     .clk(clk),
     .rst(rst),
     .pmove(pmove_final),
@@ -115,16 +132,22 @@ module au_top_0 (
     .dump_state(M_main_dump_state),
     .dump_branch(M_main_dump_branch),
     .dump_collisions(M_main_dump_collisions),
-    .dump_pos(M_main_dump_pos)
+    .dump_pos(M_main_dump_pos),
+    .dump_score(M_main_dump_score)
   );
   
   always @* begin
-    M_reset_cond_in = io_button[0+0-:1];
+    M_reset_in = io_button[0+0-:1];
+    M_reset_cond_in = M_reset_out;
     rst = M_reset_cond_out;
     usb_tx = usb_rx;
-    io_seg = 8'hff;
-    io_sel = 4'hf;
     led = io_dip[0+0+7-:8];
+    score = M_main_dump_score;
+    M_b_to_d_value = score;
+    score_digit = M_b_to_d_digits;
+    M_seg_values = score_digit;
+    io_seg = ~M_seg_seg;
+    io_sel = ~M_seg_sel;
     M_player_move_left_in = io_button[0+0-:1];
     M_button_left_edge_in = M_player_move_left_out;
     M_player_move_right_in = io_button[1+0-:1];
@@ -136,9 +159,7 @@ module au_top_0 (
     M_display_enemy_positions = M_rom_out;
     io_led[0+7-:8] = M_main_dump_collisions;
     io_led[8+7-:8] = M_main_dump_pos;
-    io_led[16+0+0-:1] = M_reset_cond_out;
-    io_led[16+1+0-:1] = io_button[0+0-:1];
-    io_led[16+2+0-:1] = reset_final;
+    io_led[16+7-:8] = score;
     outled = M_display_led;
   end
 endmodule

@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.runs/synth_1/au_top_0.tcl"
+  variable script "C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.runs/synth_1/au_top_0.tcl"
   variable category "vivado_synth"
 }
 
@@ -76,34 +76,39 @@ create_project -in_memory -part xc7a35tftg256-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.cache/wt} [current_project]
-set_property parent.project_path {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.xpr} [current_project]
+set_property webtalk.parent_dir {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.cache/wt} [current_project]
+set_property parent.project_path {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/alu_13.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/button_conditioner_4.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/comparator_19.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/counter_15.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/counter_16.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/counter_6.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/dual_matrix_9.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/edge_detector_5.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/enemy_display_11.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/hanoi_display_1.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/led_writer_17.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/main_8.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/math_18.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/pipeline_12.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/player_display_10.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/player_move_7.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/regfile_14.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/reset_conditioner_3.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/rom_ish_2.v}
-  {C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/au_top_0.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/alu_18.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/bin_to_dec_3.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/button_conditioner_5.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/comparator_24.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/counter_15.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/counter_20.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/counter_21.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/decoder_17.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/dual_matrix_11.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/edge_detector_6.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/edge_detector_7.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/enemy_display_13.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/hanoi_display_1.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/led_writer_22.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/main_10.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/math_23.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/multi_seven_seg_9.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/pipeline_14.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/player_display_12.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/player_move_8.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/regfile_19.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/reset_conditioner_4.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/rom_ish_2.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/seven_seg_16.v}
+  {C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.srcs/sources_1/imports/verilog/au_top_0.v}
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -114,11 +119,11 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc {{C:/Users/user/Documents/SUTD/term4/works man/works man/constraint/au.xdc}}
-set_property used_in_implementation false [get_files {{C:/Users/user/Documents/SUTD/term4/works man/works man/constraint/au.xdc}}]
+read_xdc {{C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/constraint/custom.xdc}}
+set_property used_in_implementation false [get_files {{C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/constraint/custom.xdc}}]
 
-read_xdc {{C:/Users/user/Documents/SUTD/term4/works man/works man/work/constraint/custom.xdc}}
-set_property used_in_implementation false [get_files {{C:/Users/user/Documents/SUTD/term4/works man/works man/work/constraint/custom.xdc}}]
+read_xdc {{C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/constraint/au.xdc}}
+set_property used_in_implementation false [get_files {{C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/constraint/au.xdc}}]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]

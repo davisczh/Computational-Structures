@@ -12,7 +12,8 @@ module main (
     
     output dump_branch[8],
     output dump_collisions[8],
-    output dump_pos[8]
+    output dump_pos[8],
+    output dump_score[8]
   ) {
   
   alu alu;
@@ -45,6 +46,7 @@ module main (
     alu.b = regfile.bout;
     dump_branch = regfile.dump_branch;
     dump_pos = regfile.dump_pos;
+    dump_score = regfile.dump_score;
     case (states.q) {
       states.START:
         regfile.asel = pmove;
@@ -115,8 +117,8 @@ module main (
         states.d = states.END;
         }
         else if (slowclock_edge.out){
-        states.d = states.DISPLAY_NEXT;
-        //states.d = states.UPDATE_SCORE;
+   
+        states.d = states.UPDATE_SCORE;
                   }
         else{
         states.d = states.COLLISION_CHECK;
@@ -129,7 +131,7 @@ module main (
         alu.alufn = 6b000000;
         regfile.wsel = 0;
         regfile.we = 0;
-        if(pmove){
+        if(reset_game){
           states.d = states.START;
         }
         else{
@@ -145,9 +147,7 @@ module main (
         regfile.wsel = 1;
         regfile.we = 1;
         states.d = states.DISPLAY_NEXT;
-        
-        
-        
+  
        default:
         regfile.asel = 0;
         regfile.bsel = 0;

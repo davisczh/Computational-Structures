@@ -13,33 +13,34 @@ module au_top (
     input io_dip [3][8]     // DIP switches on IO Shield
   ) {
   
-  sig rst; 
-  sig state[8];  
+  sig rst;   
   sig pmove_final[8];   
   sig reset_final;
-  sig left[8];
-  sig right[8];    
-  sig dump_state[8];        // reset signal
+  sig score[8];   
+  sig dump_state[8];
+  sig score_digit[4][4];    
  // sig trigger;
   hanoi_display display(.clk(clk), .rst(rst));
   
   rom_ish rom(.state(dump_state));
  
-  
+  bin_to_dec b_to_d;
   .clk(clk) {
     // The reset conditioner is used to synchronize the reset signal to the FPGA
     // clock. This ensures the entire FPGA comes out of reset at the same time.
     reset_conditioner reset_cond;
-    
+   
     button_conditioner player_move_left;
     edge_detector button_left_edge(#RISE(1), #FALL(0));
     
     button_conditioner player_move_right;
     edge_detector button_right_edge(#RISE(1), #FALL(0));
-     
+    
+    edge_detector reset(#RISE(0), #FALL(1));
   .rst(rst){
-    counter slowclock(#SIZE(1), #DIV(14));
+    
       player_move player_move(.b(pmove_final));
+      multi_seven_seg seg;     
     }
    
   }
@@ -51,26 +52,34 @@ module au_top (
   );
   always {
   //ignore
-    reset_cond.in = io_button[0]; // input raw inverted reset signal
+    //reset test
+    reset.in = io_button[0];
+     reset_cond.in = reset.out;
+    
+    
+   // reset_cond.in = io_button[0]; // input raw inverted reset signal
     rst = reset_cond.out;   // conditioned reset
     usb_tx = usb_rx;        // loop serial port
-    
-    io_seg = 8hFF;
-    io_sel = 4b1111;  
+     
     led = io_dip[0][7:0];
-  
-     //test
-    //reset_final= io_dip[0][0];
     
+    //score
+    score = main.dump_score;
+    b_to_d.value = score;
+    score_digit = b_to_d.digits;
+    seg.values = score_digit;
+    io_seg = ~seg.seg;
+    io_sel = ~seg.sel;
 
     //actually a reset button
     player_move_left.in = io_button[0];
     button_left_edge.in = player_move_left.out;
-    
+  
     //actually just move, no direction
     player_move_right.in = io_button[1];
     button_right_edge.in = player_move_right.out;
-  
+    
+    //reset or second chance button for losers
     reset_final = button_left_edge.out;
     pmove_final = button_right_edge.out;
     
@@ -81,9 +90,7 @@ module au_top (
     //display whatever
     io_led[0] = main.dump_collisions; //dump_state;
     io_led[1] = main.dump_pos;
-    io_led[2][0] = reset_cond.out;
-    io_led[2][1] = io_button[0];
-    io_led[2][2] = reset_final;
+    io_led[2] = score;
     outled = display.led;
   }
 }

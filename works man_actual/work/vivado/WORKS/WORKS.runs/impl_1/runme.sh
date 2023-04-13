@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/user/Documents/SUTD/term4/works man/works man/work/vivado/WORKS/WORKS.runs/impl_1'
+HD_PWD='C:/Users/user/Documents/SUTD/term4/Computational-Structures/works man_actual/work/vivado/WORKS/WORKS.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

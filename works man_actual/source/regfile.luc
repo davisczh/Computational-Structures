@@ -19,7 +19,8 @@ module regfile (
     output dump_state[8],
     output dump_collisions[8],
     output dump_branch[8],
-    output dump_pos[8]
+    output dump_pos[8],
+    output dump_score[8]
   ) {
   
   .clk(clk) {
@@ -28,7 +29,7 @@ module regfile (
       dff state_dff[8](#INIT(8b00000000));
       dff enemy_positions[8](#INIT(8b00));
       dff collision[8](#INIT(0));
-      dff score[8](#INIT(0));
+      dff score[8](#INIT(8b0));
   }
   }
 
@@ -37,6 +38,7 @@ module regfile (
   always {
     dump_branch = enemy_positions.q;
     dump_pos = player_pos.q;
+    dump_score = score.q;
     enemy_positions.d = rom.out[13];
     
     dump_collisions = collision.q;
