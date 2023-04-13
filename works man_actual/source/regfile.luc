@@ -39,7 +39,7 @@ module regfile (
     dump_branch = enemy_positions.q;
     dump_pos = player_pos.q;
     dump_score = score.q;
-    enemy_positions.d = rom.out[13];
+    enemy_positions.d = rom.out[19];
     
     dump_collisions = collision.q;
     aout = 0;

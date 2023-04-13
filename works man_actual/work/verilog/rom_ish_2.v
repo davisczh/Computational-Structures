@@ -6,7 +6,7 @@
 
 module rom_ish_2 (
     input [7:0] state,
-    output reg [119:0] out
+    output reg [167:0] out
   );
   
   
@@ -15,307 +15,607 @@ module rom_ish_2 (
     
     case (state)
       8'h00: begin
-        out = 120'h606062636465666768696a6b6c6d6e;
+        out = 168'h606162636465666768696a6b6c6d6e6f7071727374;
       end
       8'h01: begin
-        out = 120'h606062636465666768696a6b6c6d60;
+        out = 168'h606162636465666768696a6b6c6d6e6f7071727374;
       end
       8'h02: begin
-        out = 120'h606062636465666768696a6b6c606e;
+        out = 168'h606162636465666768696a6b6c6d6e6f7071727360;
       end
       8'h03: begin
-        out = 120'h606062636465666768696a6b606d6e;
+        out = 168'h606162636465666768696a6b6c6d6e6f7071726074;
       end
       8'h04: begin
-        out = 120'h606062636465666768696a606c6dee;
+        out = 168'h606162636465666768696a6b6c6d6e6f7071607360;
       end
       8'h05: begin
-        out = 120'h60616263646566676869606b6cedee;
+        out = 168'h606162636465666768696a6b6c6d6e6f7060726060;
       end
       8'h06: begin
-        out = 120'h606162636465666768606a6beced6e;
+        out = 168'h606162636465666768696a6b6c6d6e6f6071606060;
       end
       8'h07: begin
-        out = 120'h606162636465666760696aebec6d60;
+        out = 168'h606162636465666768696a6b6c6d6e607060606074;
       end
       8'h08: begin
-        out = 120'h60616263646566606869eaeb6c60ee;
+        out = 168'h606162636465666768696a6b6c6d606f60606073f4;
       end
       8'h09: begin
-        out = 120'h606162636465606768e9ea6b60ed60;
+        out = 168'h606162636465666768696a6b6c606e60606072f374;
       end
       8'h0a: begin
-        out = 120'h6061626364606667e8e96a60ec60ee;
+        out = 168'h606162636465666768696a6b606d60606071f27360;
       end
       8'h0b: begin
-        out = 120'h60616263606566e7e86960eb60ed6e;
+        out = 168'h606162636465666768696a606c60606070f1726074;
       end
       8'h0c: begin
-        out = 120'h606162606465e6e76860ea60ec6d60;
+        out = 168'h60616263646566676869606b6060606ff071607374;
       end
       8'h0d: begin
-        out = 120'h6061606364e5e66760e960eb6c6060;
+        out = 168'h606162636465666768606a6060606eef7060727360;
       end
       8'h0e: begin
-        out = 120'h60606263e4e56660e860ea6b606060;
+        out = 168'h606162636465666760696060606dee6f6071726060;
       end
       8'h0f: begin
-        out = 120'h606162e3e46560e760e96a60606060;
+        out = 168'h6061626364656660686060606ced6e6070716060f4;
       end
       8'h10: begin
-        out = 120'h6061e2e36460e660e8696060606060;
+        out = 168'h60616263646560676060606bec6d606f706060f360;
       end
       8'h11: begin
-        out = 120'h60e1e26360e560e768606060606060;
+        out = 168'h606162636460666060606aeb6c606e6f6060f26074;
       end
       8'h12: begin
-        out = 120'he0e16260e460e667606060606060ee;
+        out = 168'h60616263606560606069ea6b606d6e6060f1607360;
       end
       8'h13: begin
-        out = 120'he06160e360e566606060606060ed60;
+        out = 168'h606162606460606068e96a606c6d6060f060726060;
       end
       8'h14: begin
-        out = 120'h6060e260e465606060606060ec60ee;
+        out = 168'h6061606360606067e869606b6c6060ef6071606074;
       end
       8'h15: begin
-        out = 120'h60e160e364606060606060eb60ed6e;
+        out = 168'h60606260606066e768606a6b6060ee6070606073f4;
       end
       8'h16: begin
-        out = 120'he060e263606060606060ea60ec6d6e;
+        out = 168'h606160606065e66760696a6060ed606f606072f374;
       end
       8'h17: begin
-        out = 120'h60e162606060606060e960eb6c6d6e;
+        out = 168'h6060606064e5666068696060ec606e606071f27360;
       end
       8'h18: begin
-        out = 120'he061606060606060e860ea6b6c6d6e;
+        out = 168'h60606063e4656067686060eb606d606070f1726060;
       end
       8'h19: begin
-        out = 120'h60606060606060e760e96a6b6c6d6e;
+        out = 168'h606062e3646066676060ea606c60606ff0716060f4;
       end
       8'h1a: begin
-        out = 120'h606060606060e660e8696a6b6c6d60;
+        out = 168'h6061e2636065666060e9606b60606eef706060f360;
       end
       8'h1b: begin
-        out = 120'h6060606060e560e768696a6b6c60ee;
+        out = 168'h60e1626064656060e8606a60606dee6f6060f260f4;
       end
       8'h1c: begin
-        out = 120'h60606060e460e66768696a6b60ed60;
+        out = 168'he0616063646060e7606960606ced6e6060f160f360;
       end
       8'h1d: begin
-        out = 120'h606060e360e5666768696a60ec6060;
+        out = 168'h606062636060e6606860606bec6d6060f060f26074;
       end
       8'h1e: begin
-        out = 120'h6060e260e4656667686960eb6060ee;
+        out = 168'h6061626060e5606760606aeb6c6060ef60f1607360;
       end
       8'h1f: begin
-        out = 120'h60e160e3646566676860ea6060ed60;
+        out = 168'h60616060e46066606069ea6b6060ee60f060726060;
       end
       8'h20: begin
-        out = 120'he060e2636465666760e96060ec606e;
+        out = 168'h606060e36065606068e96a6060ed60ef6071606060;
       end
       8'h21: begin
-        out = 120'h60e1626364656660e86060eb606d60;
+        out = 168'h6060e26064606067e8696060ec60ee607060606060;
       end
       8'h22: begin
-        out = 120'he0616263646560e76060ea606c6060;
+        out = 168'h60e16063606066e7686060eb60ed606f60606060f4;
       end
       8'h23: begin
-        out = 120'h606162636460e66060e9606b6060ee;
+        out = 168'he06062606065e6676060ea60ec606e60606060f3f4;
       end
       8'h24: begin
-        out = 120'h6061626360e56060e8606a6060edee;
+        out = 168'h6061606064e5666060e960eb606d60606060f2f3f4;
       end
       8'h25: begin
-        out = 120'h60616260e46060e760696060eced60;
+        out = 168'h60606063e4656060e860ea606c60606060f1f2f360;
       end
       8'h26: begin
-        out = 120'h606160e36060e660686060ebec606e;
+        out = 168'h606062e3646060e760e9606b60606060f0f1f260f4;
       end
       8'h27: begin
-        out = 120'h6060e26060e560676060eaeb606d60;
+        out = 168'h6061e2636060e660e8606a60606060eff0f160f360;
       end
       8'h28: begin
-        out = 120'h60e16060e460666060e9ea606c6060;
+        out = 168'h60e1626060e560e7606960606060eeeff060f26060;
       end
       8'h29: begin
-        out = 120'he06060e360656060e8e9606b606060;
+        out = 168'he0616060e460e6606860606060edeeef60f1606060;
       end
       8'h2a: begin
-        out = 120'h6060e260646060e7e8606a6060606e;
+        out = 168'h606060e360e5606760606060ecedee60f060606060;
       end
       8'h2b: begin
-        out = 120'h60e160636060e6e760696060606dee;
+        out = 168'h6060e260e4606660606060ebeced60ef6060606060;
       end
       8'h2c: begin
-        out = 120'he060626060e5e660686060606ced60;
+        out = 168'h60e160e3606560606060eaebec60ee6060606060f4;
       end
       8'h2d: begin
-        out = 120'h60616060e4e560676060606bec60ee;
+        out = 168'he060e2606460606060e9eaeb60ed6060606060f374;
       end
       8'h2e: begin
-        out = 120'h606060e3e460666060606aeb60ed60;
+        out = 168'h60e1606360606060e8e9ea60ec6060606060f27360;
       end
       8'h2f: begin
-        out = 120'h6060e2e3606560606069ea60ec606e;
+        out = 168'he0606260606060e7e8e960eb6060606060f1726074;
       end
       8'h30: begin
-        out = 120'h60e1e2606460606068e960eb606dee;
+        out = 168'h606160606060e6e7e860ea6060606060f071607360;
       end
       8'h31: begin
-        out = 120'he0e1606360606067e860ea606ced60;
+        out = 168'h6060606060e5e6e760e96060606060ef7060726074;
       end
       8'h32: begin
-        out = 120'he0606260606066e760e9606bec60ee;
+        out = 168'h60606060e4e5e660e86060606060ee6f6071607374;
       end
       8'h33: begin
-        out = 120'h606160606065e660e8606aeb60ed60;
+        out = 168'h606060e3e4e560e76060606060ed6e607060727360;
       end
       8'h34: begin
-        out = 120'h6060606064e560e76069ea60ec6060;
+        out = 168'h6060e2e3e460e66060606060ec6d606f6071726060;
       end
       8'h35: begin
-        out = 120'h60606063e460e66068e960eb60606e;
+        out = 168'h60e1e2e360e56060606060eb6c606e607071606074;
       end
       8'h36: begin
-        out = 120'h606062e360e56067e860ea60606dee;
+        out = 168'he0e1e260e46060606060ea6b606d606f7060607360;
       end
       8'h37: begin
-        out = 120'h6061e260e46066e760e960606cedee;
+        out = 168'he0e160e36060606060e96a606c606e6f60607260f4;
       end
       8'h38: begin
-        out = 120'h60e160e36065e660e860606becedee;
+        out = 168'he060e26060606060e869606b606d6e60607160f3f4;
       end
       8'h39: begin
-        out = 120'he060e26064e560e760606aebecedee;
+        out = 168'h60e16060606060e768606a606c6d60607060f2f374;
       end
       8'h3a: begin
-        out = 120'h60e16063e460e6606069eaebeced6e;
+        out = 168'he06060606060e6676069606b6c60606f60f1f273f4;
       end
       8'h3b: begin
-        out = 120'he06062e360e5606068e9eaebec6dee;
+        out = 168'h6060606060e5666068606a6b60606e60f0f172f360;
       end
       8'h3c: begin
-        out = 120'h6061e260e4606067e8e9eaeb6cedee;
+        out = 168'h60606060e465606760696a60606d60eff071f26074;
       end
       8'h3d: begin
-        out = 120'h60e160e3606066e7e8e9ea6beced60;
+        out = 168'h606060e364606660686960606c60eeef70f1607360;
       end
       8'h3e: begin
-        out = 120'he060e2606065e6e7e8e96aebec606e;
+        out = 168'h6060e263606560676860606b60edee6ff060726074;
       end
       8'h3f: begin
-        out = 120'h60e1606064e5e6e7e869eaeb606dee;
+        out = 168'h60e162606460666760606a60eced6eef60716073f4;
       end
       8'h40: begin
-        out = 120'he0606063e4e5e6e768e9ea606ced6e;
+        out = 168'he061606360656660606960ebec6dee60706072f360;
       end
       8'h41: begin
-        out = 120'h606062e3e4e5e667e8e9606bec6d60;
+        out = 168'h60606260646560606860eaeb6ced606f6071f26060;
       end
       8'h42: begin
-        out = 120'h6061e2e3e4e566e7e8606aeb6c6060;
+        out = 168'h606160636460606760e9ea6bec606e6070f1606060;
       end
       8'h43: begin
-        out = 120'h60e1e2e3e465e6e76069ea6b60606e;
+        out = 168'h6060626360606660e8e96aeb606d606ff060606060;
       end
       8'h44: begin
-        out = 120'he0e1e2e364e5e66068e96a60606d60;
+        out = 168'h60616260606560e7e869ea606c606eef6060606074;
       end
       8'h45: begin
-        out = 120'he0e1e263e4e56067e86960606c606e;
+        out = 168'h606160606460e6e768e9606b606dee606060607360;
       end
       8'h46: begin
-        out = 120'he0e162e3e46066e76860606b606dee;
+        out = 168'h6060606360e5e667e8606a606ced60606060726074;
       end
       8'h47: begin
-        out = 120'he061e2e36065e66760606a606ced60;
+        out = 168'h60606260e4e566e76069606bec6060606071607374;
       end
       8'h48: begin
-        out = 120'h60e1e26064e566606069606bec6060;
+        out = 168'h606160e3e465e66068606aeb606060607060727360;
       end
       8'h49: begin
-        out = 120'he0e16063e465606068606aeb606060;
+        out = 168'h6060e2e364e560676069ea606060606f60717260f4;
       end
       8'h4a: begin
-        out = 120'he06062e3646060676069ea6060606e;
+        out = 168'h60e1e263e460666068e9606060606e60707160f3f4;
       end
       8'h4b: begin
-        out = 120'h6061e2636060666068e96060606d60;
+        out = 168'he0e162e360656067e8606060606d606f7060f2f3f4;
       end
       8'h4c: begin
-        out = 120'h60e1626060656067e86060606c6060;
+        out = 168'he061e260646066e7606060606c606e6f60f1f2f374;
       end
       8'h4d: begin
-        out = 120'he0616060646066e76060606b606060;
+        out = 168'h60e160636065e6606060606b606d6e60f0f1f27360;
       end
       8'h4e: begin
-        out = 120'h606060636065e66060606a60606060;
+        out = 168'he060626064e5606060606a606c6d60eff0f1726060;
       end
       8'h4f: begin
-        out = 120'h6060626064e56060606960606060ee;
+        out = 168'h60616063e46060606069606b6c60eeeff0716060f4;
       end
       8'h50: begin
-        out = 120'h60616063e46060606860606060edee;
+        out = 168'h606062e36060606068606a6b60edeeef706060f3f4;
       end
       8'h51: begin
-        out = 120'h606062e36060606760606060eced60;
+        out = 168'h6061e2606060606760696a60ecedee6f6060f2f3f4;
       end
       8'h52: begin
-        out = 120'h6061e26060606660606060ebec6060;
+        out = 168'h60e1606060606660686960ebeced6e6060f1f2f3f4;
       end
       8'h53: begin
-        out = 120'h60e16060606560606060eaeb606060;
+        out = 168'he0606060606560676860eaebec6d6060f0f1f2f360;
       end
       8'h54: begin
-        out = 120'he06060606460606060e9ea60606060;
+        out = 168'h606060606460666760e9eaeb6c6060eff0f1f26060;
       end
       8'h55: begin
-        out = 120'h6060606360606060e8e96060606060;
+        out = 168'h6060606360656660e8e9ea6b6060eeeff0f1606074;
       end
       8'h56: begin
-        out = 120'h60606260606060e7e8606060606060;
+        out = 168'h60606260646560e7e8e96a6060edeeeff0606073f4;
       end
       8'h57: begin
-        out = 120'h606160606060e6e760606060606060;
+        out = 168'h606160636460e6e7e8696060ecedeeef606072f360;
       end
       8'h58: begin
-        out = 120'h6060606060e5e660606060606060ee;
+        out = 168'h6060626360e5e6e7686060ebecedee606071f26060;
       end
       8'h59: begin
-        out = 120'h60606060e4e560606060606060edee;
+        out = 168'h60616260e4e5e6676060eaebeced606070f16060f4;
       end
       8'h5a: begin
-        out = 120'h606060e3e460606060606060eced60;
+        out = 168'h606160e3e4e5666060e9eaebec60606ff06060f3f4;
       end
       8'h5b: begin
-        out = 120'h6060e2e360606060606060ebec6060;
+        out = 168'h6060e2e3e4656060e8e9eaeb60606eef6060f2f360;
       end
       8'h5c: begin
-        out = 120'h60e1e260606060606060eaeb60606e;
+        out = 168'h60e1e2e3646060e7e8e9ea60606dee6060f1f26060;
       end
       8'h5d: begin
-        out = 120'he0e160606060606060e9ea60606dee;
+        out = 168'he0e1e2636060e6e7e8e960606ced6060f0f1606060;
       end
       8'h5e: begin
-        out = 120'he060606060606060e8e960606ced60;
+        out = 168'he0e1626060e5e6e7e860606bec6060eff060606060;
       end
       8'h5f: begin
-        out = 120'h60606060606060e7e860606bec6060;
+        out = 168'he0616060e4e5e6e760606aeb6060eeef6060606060;
       end
       8'h60: begin
-        out = 120'h606060606060e6e760606aeb60606e;
+        out = 168'h606060e3e4e5e6606069ea6060edee606060606060;
       end
       8'h61: begin
-        out = 120'h6060606060e5e6606069ea60606d6e;
+        out = 168'h6060e2e3e4e5606068e96060eced60606060606060;
       end
       8'h62: begin
-        out = 120'h60606060e4e5606068e960606c6dee;
+        out = 168'h60e1e2e3e4606067e86060ebec60606060606060f4;
       end
       8'h63: begin
-        out = 120'h606060e3e4606067e860606b6ced60;
+        out = 168'he0e1e2e3606066e76060eaeb60606060606060f360;
+      end
+      8'h64: begin
+        out = 168'he0e1e2606065e66060e9ea60606060606060f26074;
+      end
+      8'h65: begin
+        out = 168'he0e1606064e56060e8e960606060606060f1607374;
+      end
+      8'h66: begin
+        out = 168'he0606063e46060e7e860606060606060f060727360;
+      end
+      8'h67: begin
+        out = 168'h606062e36060e6e760606060606060ef6071726060;
+      end
+      8'h68: begin
+        out = 168'h6061e26060e5e660606060606060ee6070716060f4;
+      end
+      8'h69: begin
+        out = 168'h60e16060e4e560606060606060ed606f706060f374;
+      end
+      8'h6a: begin
+        out = 168'he06060e3e460606060606060ec606e6f6060f27360;
+      end
+      8'h6b: begin
+        out = 168'h6060e2e360606060606060eb606d6e6060f1726074;
+      end
+      8'h6c: begin
+        out = 168'h60e1e260606060606060ea606c6d6060f071607360;
+      end
+      8'h6d: begin
+        out = 168'he0e160606060606060e9606b6c6060ef7060726074;
+      end
+      8'h6e: begin
+        out = 168'he060606060606060e8606a6b6060ee6f60716073f4;
+      end
+      8'h6f: begin
+        out = 168'h60606060606060e760696a6060ed6e60706072f3f4;
+      end
+      8'h70: begin
+        out = 168'h606060606060e66068696060ec6d606f6071f2f360;
+      end
+      8'h71: begin
+        out = 168'h6060606060e56067686060eb6c606e6070f1f260f4;
+      end
+      8'h72: begin
+        out = 168'h60606060e46066676060ea6b606d606ff0f160f3f4;
+      end
+      8'h73: begin
+        out = 168'h606060e36065666060e96a606c606eeff060f2f360;
+      end
+      8'h74: begin
+        out = 168'h6060e26064656060e869606b606deeef60f1f260f4;
+      end
+      8'h75: begin
+        out = 168'h60e16063646060e768606a606cedee60f0f160f374;
+      end
+      8'h76: begin
+        out = 168'he06062636060e6676069606beced60eff060f27360;
+      end
+      8'h77: begin
+        out = 168'h6061626060e5666068606aebec60eeef60f1726060;
+      end
+      8'h78: begin
+        out = 168'h60616060e46560676069eaeb60edee60f071606060;
+      end
+      8'h79: begin
+        out = 168'h606060e36460666068e9ea60eced60ef7060606074;
+      end
+      8'h7a: begin
+        out = 168'h6060e26360656067e8e960ebec60ee6f6060607360;
+      end
+      8'h7b: begin
+        out = 168'h60e16260646066e7e860eaeb60ed6e6060607260f4;
+      end
+      8'h7c: begin
+        out = 168'he06160636065e6e760e9ea60ec6d6060607160f360;
+      end
+      8'h7d: begin
+        out = 168'h6060626064e5e660e8e960eb6c6060607060f26060;
+      end
+      8'h7e: begin
+        out = 168'h60616063e4e560e7e860ea6b6060606f60f1606074;
+      end
+      8'h7f: begin
+        out = 168'h606062e3e460e6e760e96a6060606e60f060607374;
+      end
+      8'h80: begin
+        out = 168'h6061e2e360e5e660e8696060606d60ef60607273f4;
+      end
+      8'h81: begin
+        out = 168'h60e1e260e4e560e7686060606c60ee60607172f3f4;
+      end
+      8'h82: begin
+        out = 168'he0e160e3e460e6676060606b60ed60607071f2f374;
+      end
+      8'h83: begin
+        out = 168'he060e2e360e5666060606a60ec60606f70f1f27374;
+      end
+      8'h84: begin
+        out = 168'h60e1e260e4656060606960eb60606e6ff0f1727360;
+      end
+      8'h85: begin
+        out = 168'he0e160e3646060606860ea60606d6eeff071726060;
+      end
+      8'h86: begin
+        out = 168'he060e2636060606760e960606c6deeef70716060f4;
+      end
+      8'h87: begin
+        out = 168'h60e1626060606660e860606b6cedee6f706060f374;
+      end
+      8'h88: begin
+        out = 168'he0616060606560e760606a6beced6e6f6060f27374;
+      end
+      8'h89: begin
+        out = 168'h606060606460e66060696aebec6d6e6060f1727360;
+      end
+      8'h8a: begin
+        out = 168'h6060606360e560606869eaeb6c6d6060f0717260f4;
+      end
+      8'h8b: begin
+        out = 168'h60606260e460606768e9ea6b6c6060ef707160f374;
+      end
+      8'h8c: begin
+        out = 168'h606160e360606667e8e96a6b6060ee6f7060f27374;
+      end
+      8'h8d: begin
+        out = 168'h6060e260606566e7e8696a6060ed6e6f60f1727360;
+      end
+      8'h8e: begin
+        out = 168'h60e160606465e6e768696060ec6d6e60f071726060;
+      end
+      8'h8f: begin
+        out = 168'he060606364e5e667686060eb6c6d60ef7071606060;
+      end
+      8'h90: begin
+        out = 168'h60606263e4e566676060ea6b6c60ee6f70606060f4;
+      end
+      8'h91: begin
+        out = 168'h606162e3e465666060e96a6b60ed6e6f606060f360;
+      end
+      8'h92: begin
+        out = 168'h6061e2e364656060e8696a60ec6d6e606060f260f4;
+      end
+      8'h93: begin
+        out = 168'h60e1e263646060e7686960eb6c6d606060f160f360;
+      end
+      8'h94: begin
+        out = 168'he0e162636060e6676860ea6b6c606060f060f26074;
+      end
+      8'h95: begin
+        out = 168'he061626060e5666760e96a6b606060ef60f1607360;
+      end
+      8'h96: begin
+        out = 168'h60616060e4656660e8696a606060ee60f0607260f4;
+      end
+      8'h97: begin
+        out = 168'h606060e3646560e76869606060ed60ef607160f360;
+      end
+      8'h98: begin
+        out = 168'h6060e2636460e66768606060ec60ee607060f26074;
+      end
+      8'h99: begin
+        out = 168'h60e1626360e56667606060eb60ed606f60f1607360;
+      end
+      8'h9a: begin
+        out = 168'he0616260e46566606060ea60ec606e60f0607260f4;
+      end
+      8'h9b: begin
+        out = 168'h606160e36465606060e960eb606d60ef607160f360;
+      end
+      8'h9c: begin
+        out = 168'h6060e26364606060e860ea606c60ee607060f260f4;
+      end
+      8'h9d: begin
+        out = 168'h60e16263606060e760e9606b60ed606f60f160f374;
+      end
+      8'h9e: begin
+        out = 168'he06162606060e660e8606a60ec606e60f060f273f4;
+      end
+      8'h9f: begin
+        out = 168'h6061606060e560e7606960eb606d60ef60f172f3f4;
+      end
+      8'ha0: begin
+        out = 168'h60606060e460e6606860ea606c60ee60f071f2f360;
+      end
+      8'ha1: begin
+        out = 168'h606060e360e5606760e9606b60ed60ef70f1f26060;
+      end
+      8'ha2: begin
+        out = 168'h6060e260e4606660e8606a60ec60ee6ff0f1606074;
+      end
+      8'ha3: begin
+        out = 168'h60e160e3606560e7606960eb60ed6eeff060607374;
+      end
+      8'ha4: begin
+        out = 168'he060e2606460e6606860ea60ec6deeef6060727374;
+      end
+      8'ha5: begin
+        out = 168'h60e1606360e5606760e960eb6cedee606071727360;
+      end
+      8'ha6: begin
+        out = 168'he0606260e4606660e860ea6beced606070717260f4;
+      end
+      8'ha7: begin
+        out = 168'h606160e3606560e760e96aebec60606f707160f3f4;
+      end
+      8'ha8: begin
+        out = 168'h6060e2606460e660e869eaeb60606e6f7060f2f3f4;
+      end
+      8'ha9: begin
+        out = 168'h60e1606360e560e768e9ea60606d6e6f60f1f2f360;
+      end
+      8'haa: begin
+        out = 168'he0606260e460e667e8e960606c6d6e60f0f1f260f4;
+      end
+      8'hab: begin
+        out = 168'h606160e360e566e7e860606b6c6d60eff0f160f360;
+      end
+      8'hac: begin
+        out = 168'h6060e260e465e6e760606a6b6c60eeeff060f26060;
+      end
+      8'had: begin
+        out = 168'h60e160e364e5e66060696a6b60edeeef60f16060f4;
+      end
+      8'hae: begin
+        out = 168'he060e263e4e5606068696a60ecedee60f06060f374;
+      end
+      8'haf: begin
+        out = 168'h60e162e3e4606067686960ebeced60ef6060f27360;
+      end
+      8'hb0: begin
+        out = 168'he061e2e3606066676860eaebec60ee6060f17260f4;
+      end
+      8'hb1: begin
+        out = 168'h60e1e2606065666760e9eaeb60ed6060f07160f360;
+      end
+      8'hb2: begin
+        out = 168'he0e1606064656660e8e9ea60ec6060ef7060f26060;
+      end
+      8'hb3: begin
+        out = 168'he0606063646560e7e8e960eb6060ee6f60f1606074;
+      end
+      8'hb4: begin
+        out = 168'h606062636460e6e7e860ea6060ed6e60f0606073f4;
+      end
+      8'hb5: begin
+        out = 168'h6061626360e5e6e760e96060ec6d60ef606072f360;
+      end
+      8'hb6: begin
+        out = 168'h60616260e4e5e660e86060eb6c60ee606071f260f4;
+      end
+      8'hb7: begin
+        out = 168'h606160e3e4e560e76060ea6b60ed606070f160f374;
+      end
+      8'hb8: begin
+        out = 168'h6060e2e3e460e66060e96a60ec60606ff060f27360;
+      end
+      8'hb9: begin
+        out = 168'h60e1e2e360e56060e86960eb60606eef60f1726060;
+      end
+      8'hba: begin
+        out = 168'he0e1e260e46060e76860ea60606dee60f0716060f4;
+      end
+      8'hbb: begin
+        out = 168'he0e160e36060e66760e960606ced60ef706060f3f4;
+      end
+      8'hbc: begin
+        out = 168'he060e26060e56660e860606bec60ee6f6060f2f360;
+      end
+      8'hbd: begin
+        out = 168'h60e16060e46560e760606aeb60ed6e6060f1f26060;
+      end
+      8'hbe: begin
+        out = 168'he06060e36460e6606069ea60ec6d6060f0f1606074;
+      end
+      8'hbf: begin
+        out = 168'h6060e26360e5606068e960eb6c6060eff060607360;
+      end
+      8'hc0: begin
+        out = 168'h60e16260e4606067e860ea6b6060eeef6060726074;
+      end
+      8'hc1: begin
+        out = 168'he06160e3606066e760e96a6060edee606071607374;
+      end
+      8'hc2: begin
+        out = 168'h6060e2606065e660e8696060eced60607060727360;
+      end
+      8'hc3: begin
+        out = 168'h60e1606064e560e7686060ebec60606f6071726074;
+      end
+      8'hc4: begin
+        out = 168'he0606063e460e6676060eaeb60606e607071607360;
+      end
+      8'hc5: begin
+        out = 168'h606062e360e5666060e9ea60606d606f7060726060;
+      end
+      8'hc6: begin
+        out = 168'h6061e260e4656060e8e960606c606e6f6071606060;
+      end
+      8'hc7: begin
+        out = 168'h60e160e3646060e7e860606b606d6e607060606074;
       end
       default: begin
-        out = 120'h000000000000000000000000000000;
+        out = 168'h000000000000000000000000000000000000000000;
       end
     endcase
   end

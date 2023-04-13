@@ -34,7 +34,7 @@ module au_top_0 (
   
   wire [1-1:0] M_display_led;
   reg [8-1:0] M_display_player_position;
-  reg [120-1:0] M_display_enemy_positions;
+  reg [168-1:0] M_display_enemy_positions;
   hanoi_display_1 display (
     .clk(clk),
     .rst(rst),
@@ -43,7 +43,7 @@ module au_top_0 (
     .led(M_display_led)
   );
   
-  wire [120-1:0] M_rom_out;
+  wire [168-1:0] M_rom_out;
   rom_ish_2 rom (
     .state(dump_state),
     .out(M_rom_out)

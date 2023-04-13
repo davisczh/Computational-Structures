@@ -7,7 +7,7 @@
 module enemy_display_13 (
     input clk,
     input rst,
-    input [119:0] enemy_positions,
+    input [167:0] enemy_positions,
     input [4:0] x,
     input [2:0] y,
     input screen,

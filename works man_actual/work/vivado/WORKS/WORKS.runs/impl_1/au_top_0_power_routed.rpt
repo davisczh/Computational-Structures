@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Fri Apr 14 01:21:34 2023
+| Date             : Fri Apr 14 04:44:59 2023
 | Host             : LAPTOP-QS7C2R87 running 64-bit major release  (build 9200)
 | Command          : report_power -file au_top_0_power_routed.rpt -pb au_top_0_power_summary_routed.pb -rpx au_top_0_power_routed.rpx
 | Design           : au_top_0
@@ -53,13 +53,13 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      769 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      443 |     20800 |            2.13 |
-|   CARRY4       |    <0.001 |       35 |      8150 |            0.43 |
-|   Register     |    <0.001 |      173 |     41600 |            0.42 |
-|   F7/F8 Muxes  |    <0.001 |        1 |     32600 |           <0.01 |
-|   Others       |     0.000 |       35 |       --- |             --- |
-| Signals        |     0.001 |      702 |       --- |             --- |
+| Slice Logic    |    <0.001 |      670 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      362 |     20800 |            1.74 |
+|   CARRY4       |    <0.001 |       34 |      8150 |            0.42 |
+|   Register     |    <0.001 |      177 |     41600 |            0.43 |
+|   F7/F8 Muxes  |    <0.001 |        6 |     32600 |            0.02 |
+|   Others       |     0.000 |       34 |       --- |             --- |
+| Signals        |     0.001 |      587 |       --- |             --- |
 | I/O            |     0.025 |       58 |       170 |           34.12 |
 | Static Power   |     0.072 |          |           |                 |
 | Total          |     0.100 |          |           |                 |
@@ -138,12 +138,11 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+-------------+-----------+
-| Name        | Power (W) |
-+-------------+-----------+
-| au_top_0    |     0.028 |
-|   main      |     0.002 |
-|     regfile |     0.001 |
-+-------------+-----------+
++----------+-----------+
+| Name     | Power (W) |
++----------+-----------+
+| au_top_0 |     0.028 |
+|   main   |     0.001 |
++----------+-----------+
 
 

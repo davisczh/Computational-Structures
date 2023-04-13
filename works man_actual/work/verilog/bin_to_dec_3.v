@@ -7,7 +7,7 @@
 /*
    Parameters:
      DIGITS = 4
-     LEADING_ZEROS = 1
+     LEADING_ZEROS = 0
 */
 module bin_to_dec_3 (
     input [13:0] value,
@@ -15,7 +15,7 @@ module bin_to_dec_3 (
   );
   
   localparam DIGITS = 3'h4;
-  localparam LEADING_ZEROS = 1'h1;
+  localparam LEADING_ZEROS = 1'h0;
   
   
   integer i;
@@ -34,7 +34,7 @@ module bin_to_dec_3 (
       digits[(i)*4+3-:4] = 4'hb;
     end
     remainder = value;
-    blank = 1'h0;
+    blank = 1'h1;
     if (value < 14'h2710) begin
       for (j = 4'h3; j >= $signed(1'h0); j = j - 1) begin
         scale = $pow(4'ha, j);

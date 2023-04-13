@@ -19,14 +19,11 @@
     <src>globals.luc</src>
     <component>decoder.luc</component>
     <src>seven_seg.luc</src>
-    <component>pn_gen.luc</component>
-    <component>simple_ram.v</component>
     <src>player_move.luc</src>
     <src>multi_seven_seg.luc</src>
     <src top="true">au_top.luc</src>
     <component>edge_detector.luc</component>
     <src>comparator.luc</src>
-    <src>decimal_counter.luc</src>
     <constraint>custom.acf</constraint>
     <constraint>au.xdc</constraint>
   </files>

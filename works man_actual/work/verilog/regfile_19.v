@@ -32,7 +32,7 @@ module regfile_19 (
   reg [7:0] M_collision_d, M_collision_q = 1'h0;
   reg [7:0] M_score_d, M_score_q = 8'h00;
   
-  wire [120-1:0] M_rom_out;
+  wire [168-1:0] M_rom_out;
   rom_ish_2 rom (
     .state(M_state_dff_q),
     .out(M_rom_out)
@@ -48,7 +48,7 @@ module regfile_19 (
     dump_branch = M_enemy_positions_q;
     dump_pos = M_player_pos_q;
     dump_score = M_score_q;
-    M_enemy_positions_d = M_rom_out[104+7-:8];
+    M_enemy_positions_d = M_rom_out[152+7-:8];
     dump_collisions = M_collision_q;
     aout = 1'h0;
     if (aconst) begin

@@ -23,7 +23,7 @@ module hanoi_display (
     input rst,  // reset
     input player_position[8],
   
-    input enemy_positions[15][8],
+    input enemy_positions[21][8],
 
 
     output led

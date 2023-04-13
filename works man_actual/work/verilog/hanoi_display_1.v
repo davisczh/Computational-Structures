@@ -8,7 +8,7 @@ module hanoi_display_1 (
     input clk,
     input rst,
     input [7:0] player_position,
-    input [119:0] enemy_positions,
+    input [167:0] enemy_positions,
     output reg led
   );
   
