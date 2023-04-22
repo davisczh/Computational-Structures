@@ -1,26 +1,5 @@
 **50.002 1D Project Report**
 
-> Team 4
->
-> **Mist Tree Branch**
->
-> **Team Number**: 4
->
-> *\*Instructions*:\
-> *1.* ***Directly** work on your report in this Google doc. Do not work
-> elsewhere and paste it* *here.*
->
-> *2.* *Use the template formatting, if it is a heading (e.g., Heading
-> 1, Heading 2 etc.), format it* *as such so the **Table of Contents**
-> will reflect it.*
->
-> *The point of this Google doc is to be a **live** document that you
-> continually update as you 3.*
->
-> *work on your 1D project. The teaching staff will be taking a look at
-> these documents as you work on them to see how your team is
-> progressing.*
->
 > Group members:
 
 +-----------------------------------+-----------------------------------+
@@ -45,27 +24,7 @@
 
 **50.002 1D Project Report**
 
-> **Table of Contents**
->
-> [Table of Contents]{.underline}\
-> [Introduction]{.underline}\
-> [Game Design]{.underline}\
-> [Description of the Game]{.underline}\
-> [User Manual]{.underline}\
-> [Design Inspirations]{.underline}\
-> [Test Scenarios]{.underline}\
-> [Electronic Design]{.underline}\
-> [Input/Output]{.underline}\
-> [Datapath]{.underline}\
-> [FSM]{.underline}\
-> [Budget]{.underline}\
-> [Summary]{.underline}\
-> [References]{.underline}\
-> [Appendix]{.underline}\
-> [1. ALU Design and Tests]{.underline}\
-> [2. Prototype code + Repo link]{.underline}\
-> [3. Project Management Log: Team Tasks]{.underline}\
-> [4. Components' Specifications]{.underline}
+
 
 +-----------------------------------+-----------------------------------+
 | *ISTD 50.002 Computation          | > *2*                             |
