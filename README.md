@@ -8,37 +8,12 @@
 
 ### Group members:
 
-|
-### 1006084
- |
-### Patrick Phone Myat Mo
- |
-| --- | --- |
-|
-### 1006118
- |
-### Ng Junhao Marcus
- |
-|
-### 1006105
- |
-### Dangi Smriti
- |
-|
-### 1005936
- |
-### Chun Zhi Heng Davis
- |
-|
-### 1005984
- |
-### Ng Hau Yin Kendrick
- |
-|
-### 1006184
- |
-### Atul Parida
- |
+|### 1006084|### Patrick Phone Myat Mo|
+|### 1006118|### Ng Junhao Marcus|
+|### 1006105|### Dangi Smriti|
+|### 1005936|### Chun Zhi Heng Davis|
+|### 1005984|### Ng Hau Yin Kendrick|
+|### 1006184|### Atul Parida|
 
 ##
 
