@@ -28,9 +28,9 @@ Our prototype is made on a standard arcade game box with one 7 segment number di
 
 All electrical components and wiring, including the FPGA and the power supply are hidden behind the screen within the box.
 
-![](\Users\dczqd\OneDrive - Singapore University of Technology and Design\Pictures\Saved Pictures\Picture1.png "OURTHING")
+![](https://discord.com/channels/814220787014697010/814220787014697013/1099399425807368202 "OURTHING")
 
-![](\Users\dczqd\OneDrive - Singapore University of Technology and Design\Pictures\Saved Pictures\Picture2.png "ITSPLAYING")
+![](https://discord.com/channels/814220787014697010/814220787014697013/1099399425807368202 "ITSPLAYING")
 
 ## **Game Design**
 
