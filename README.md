@@ -28,10 +28,9 @@ Our prototype is made on a standard arcade game box with one 7 segment number di
 
 All electrical components and wiring, including the FPGA and the power supply are hidden behind the screen within the box.
 
-![](https://cdn.discordapp.com/attachments/814220787014697013/1099399425325019226/Picture1.png "OURTHING")
-
-![](https://cdn.discordapp.com/attachments/814220787014697013/1099399425597636658/Picture2.png "ITSPLAYING")
-
+!["final prototype!](https://cdn.discordapp.com/attachments/814220787014697013/1099399425325019226/Picture1.png "OURTHING")
+!["IN GAME!"](https://cdn.discordapp.com/attachments/814220787014697013/1099399425597636658/Picture2.png "ITSPLAYING")
+!["FPGA"](https://cdn.discordapp.com/attachments/814220787014697013/1099401191064076368/download.jpg "MADE IT USING THIS FPGA!")
 ## **Game Design**
 
 ## Description of the Game
